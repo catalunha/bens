@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "cemec-bens"
+    },
+    "cemec-bens": {
+      "applicationId": "rJ1ofbKkVNOgxs8hwLdX16hmSEXRz2VYCWcPEUfN"
+    }
+  }
+}

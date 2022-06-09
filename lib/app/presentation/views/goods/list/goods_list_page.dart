@@ -12,7 +12,7 @@ class GoodsListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppAppbar(
-        title: const Text('Meus marcos'),
+        title: const Text('Bens do CEMEC'),
       ),
       body: Column(
         children: [
@@ -21,7 +21,7 @@ class GoodsListPage extends StatelessWidget {
             trailing: Obx(() => Text('${_goodsController.goodsSearch.length}')),
             title: TextField(
               decoration: const InputDecoration(
-                labelText: 'Digite o nome de patrimonio',
+                labelText: 'Digite o nome de um bem',
                 hintStyle: TextStyle(
                   color: Colors.white,
                   fontSize: 18,

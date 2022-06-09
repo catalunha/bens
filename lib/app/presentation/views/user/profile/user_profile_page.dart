@@ -22,7 +22,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
   final _phoneTec = TextEditingController();
   final _sectorTec = TextEditingController();
   final _positionTec = TextEditingController();
-  final _activityTec = TextEditingController();
+  final _locationTec = TextEditingController();
   @override
   void initState() {
     // TODO: implement initState
@@ -37,8 +37,8 @@ class _UserProfilePageState extends State<UserProfilePage> {
     _sectorTec.text = widget._userProfileController.userProfile?.sector ?? "";
     _positionTec.text =
         widget._userProfileController.userProfile?.position ?? "";
-    _activityTec.text =
-        widget._userProfileController.userProfile?.activity ?? "";
+    _locationTec.text =
+        widget._userProfileController.userProfile?.location ?? "";
   }
 
   @override
@@ -85,7 +85,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                 ),
                 AppTextFormField(
                   label: 'Sua atividade no projeto.',
-                  controller: _activityTec,
+                  controller: _locationTec,
                 ),
                 UserProfilePhoto(),
                 const SizedBox(height: 20),
@@ -100,7 +100,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                         description: _descriptionTec.text,
                         sector: _sectorTec.text,
                         position: _positionTec.text,
-                        activity: _activityTec.text,
+                        location: _locationTec.text,
                       );
                       Get.back();
                     }

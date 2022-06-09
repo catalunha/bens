@@ -10,7 +10,7 @@ class UserProfileModel {
   final String? email;
   final String? sector;
   final String? position;
-  final String? activity;
+  final String? location;
   UserProfileModel({
     this.id,
     this.photo,
@@ -21,7 +21,7 @@ class UserProfileModel {
     this.email,
     this.sector,
     this.position,
-    this.activity,
+    this.location,
   });
 
   UserProfileModel copyWith({
@@ -34,7 +34,7 @@ class UserProfileModel {
     String? email,
     String? sector,
     String? position,
-    String? activity,
+    String? location,
   }) {
     return UserProfileModel(
       id: id ?? this.id,
@@ -46,7 +46,7 @@ class UserProfileModel {
       email: email ?? this.email,
       sector: sector ?? this.sector,
       position: position ?? this.position,
-      activity: activity ?? this.activity,
+      location: location ?? this.location,
     );
   }
 
@@ -61,7 +61,7 @@ class UserProfileModel {
       'email': email,
       'sector': sector,
       'position': position,
-      'activity': activity,
+      'location': location,
     };
   }
 
@@ -76,7 +76,7 @@ class UserProfileModel {
       email: map['email'],
       sector: map['sector'],
       position: map['position'],
-      activity: map['activity'],
+      location: map['location'],
     );
   }
 
@@ -87,7 +87,7 @@ class UserProfileModel {
 
   @override
   String toString() {
-    return 'UserProfileModel(id: $id, photo: $photo, nickname: $nickname, fullName: $fullName, description: $description, phone: $phone, email: $email, sector: $sector, position: $position, activity: $activity)';
+    return 'UserProfileModel(id: $id, photo: $photo, nickname: $nickname, fullName: $fullName, description: $description, phone: $phone, email: $email, sector: $sector, position: $position, location: $location)';
   }
 
   @override
@@ -104,7 +104,7 @@ class UserProfileModel {
         other.email == email &&
         other.sector == sector &&
         other.position == position &&
-        other.activity == activity;
+        other.location == location;
   }
 
   @override
@@ -118,6 +118,6 @@ class UserProfileModel {
         email.hashCode ^
         sector.hashCode ^
         position.hashCode ^
-        activity.hashCode;
+        location.hashCode;
   }
 }

@@ -1,11 +1,15 @@
+import 'package:bens/app/data/datasources/back4app/entity/goods_entity.dart';
 import 'package:bens/app/data/datasources/back4app/goods/goods_repository_exception.dart';
+import 'package:bens/app/domain/models/user_model.dart';
 import 'package:bens/app/domain/usecases/goods/goods_usecase.dart';
+import 'package:bens/app/domain/utils/xfile_to_parsefile.dart';
 import 'package:get/get.dart';
 import 'package:bens/app/domain/models/goods_model.dart';
 import 'package:bens/app/presentation/controllers/auth/splash/splash_controller.dart';
 import 'package:bens/app/presentation/controllers/utils/mixins/loader_mixin.dart';
 import 'package:bens/app/presentation/controllers/utils/mixins/message_mixin.dart';
 import 'package:bens/app/routes.dart';
+import 'package:image_picker/image_picker.dart';
 
 class GoodsController extends GetxController with LoaderMixin, MessageMixin {
   final GoodsUseCase _goodsUseCase;
@@ -25,7 +29,7 @@ class GoodsController extends GetxController with LoaderMixin, MessageMixin {
   final _goodsSearchList = <GoodsModel>[].obs;
   List<GoodsModel> get goodsSearch => _goodsSearchList.toList();
 
-  var fileString = ''.obs;
+  XFile? xfile;
 
   @override
   void onInit() {
@@ -54,38 +58,37 @@ class GoodsController extends GetxController with LoaderMixin, MessageMixin {
   }) async {
     try {
       _loading(true);
-      GoodsModel model;
+      UserModel userModel;
+      String? modelId;
       if (goods == null) {
         SplashController splashController = Get.find();
-        model = GoodsModel(
-          user: splashController.userModel!,
-          name: name,
-          description: description,
-          ownership: ownership,
-          room: room,
-          volumeX: volumeX,
-          volumeY: volumeY,
-          volumeZ: volumeZ,
-          weight: weight,
-          latitude: latitude,
-          longitude: longitude,
-        );
-        await _goodsUseCase.create(model);
+        userModel = splashController.userModel!;
       } else {
-        model = goods!.copyWith(
-          id: goods!.id,
-          name: name,
-          description: description,
-          ownership: ownership,
-          room: room,
-          volumeX: volumeX,
-          volumeY: volumeY,
-          volumeZ: volumeZ,
-          weight: weight,
-          latitude: latitude,
-          longitude: longitude,
+        userModel = goods!.user;
+        modelId = goods!.id;
+      }
+      GoodsModel model = GoodsModel(
+        id: modelId,
+        user: userModel,
+        name: name,
+        description: description,
+        ownership: ownership,
+        room: room,
+        volumeX: volumeX,
+        volumeY: volumeY,
+        volumeZ: volumeZ,
+        weight: weight,
+        latitude: latitude,
+        longitude: longitude,
+      );
+      modelId = await _goodsUseCase.append(model);
+      if (xfile != null) {
+        await XFileToParseFile.xFileToParseFile(
+          xfile: xfile!,
+          className: GoodsEntity.className,
+          objectId: modelId,
+          objectAttribute: 'image',
         );
-        await _goodsUseCase.update(model);
       }
     } on GoodsRepositoryException {
       _message.value = MessageModel(

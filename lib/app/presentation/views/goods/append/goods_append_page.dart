@@ -84,9 +84,14 @@ class _ProductAppendPageState extends State<GoodsAppendPage> {
                   validator:
                       Validatorless.required('Sala/Ambiente é obrigatório'),
                 ),
-             AppAddPhoto(xfile: (xfile ) {widget._goodsController.  },photo: widget._goodsController.goods?.image,),
+                AppAddPhoto(
+                  xfile: (xfile) {
+                    widget._goodsController.xfile = xfile;
+                  },
+                  photo: widget._goodsController.goods?.image,
+                ),
                 AppNumberFormField(
-                  label: 'Comprimento X',
+                  label: 'Comprimento X em mm',
                   controller: _volumeXTEC,
                   validator: Validatorless.multiple([
                     Validatorless.number('Informe um número válido'),
@@ -114,7 +119,7 @@ class _ProductAppendPageState extends State<GoodsAppendPage> {
                 ),
                 AppNumberFormField(
                   label: 'Peso em gramas',
-                  controller: _volumeZTEC,
+                  controller: _weightTEC,
                   validator: Validatorless.multiple([
                     Validatorless.number('Informe um número válido'),
                     // Validatorless.min(0, 'Maior que 0'),
@@ -160,6 +165,8 @@ class _ProductAppendPageState extends State<GoodsAppendPage> {
               volumeY: double.tryParse(_volumeYTEC.text),
               volumeZ: double.tryParse(_volumeZTEC.text),
               weight: double.tryParse(_weightTEC.text),
+              latitude: double.tryParse(_latTEC.text),
+              longitude: double.tryParse(_longTEC.text),
             );
             Get.back();
           }

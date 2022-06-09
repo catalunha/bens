@@ -1,4 +1,5 @@
 import 'package:bens/app/data/datasources/back4app/entity/goods_entity.dart';
+import 'package:bens/app/data/datasources/back4app/goods/goods_repository_exception.dart';
 import 'package:get/get.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:bens/app/data/datasources/repositories/goods_repository.dart';
@@ -30,15 +31,16 @@ class GoodsRepositoryB4a extends GetxService implements GoodsRepository {
   }
 
   @override
-  Future<void> create(GoodsModel model) async {
+  Future<String> append(GoodsModel model) async {
     final parseObject = await GoodsEntity().toParse(model);
-    await parseObject.save();
-  }
-
-  @override
-  Future<void> update(GoodsModel model) async {
-    final parseObject = await GoodsEntity().toParse(model);
-    await parseObject.save();
+    final ParseResponse parseResponse = await parseObject.save();
+    if (parseResponse.success && parseResponse.results != null) {
+      ParseObject userProfile = parseResponse.results!.first as ParseObject;
+      return userProfile.objectId!;
+    } else {
+      throw GoodsRepositoryException(
+          code: 1, message: 'Não foi possivel cadastrar/atualizar o bem.');
+    }
   }
 
   @override

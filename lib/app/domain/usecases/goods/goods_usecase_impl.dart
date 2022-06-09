@@ -9,15 +9,11 @@ class GoodsUseCaseImpl implements GoodsUseCase {
     required GoodsRepository repository,
   }) : _repository = repository;
   @override
-  Future<void> create(GoodsModel model) => _repository.create(model);
+  Future<String> append(GoodsModel model) => _repository.append(model);
 
   @override
   Future<void> delete(String id) => _repository.delete(id);
 
   @override
   Future<void> list(RxList<GoodsModel> list) => _repository.list(list);
-
-  @override
-  Future<void> update(GoodsModel courseModel) =>
-      _repository.update(courseModel);
 }

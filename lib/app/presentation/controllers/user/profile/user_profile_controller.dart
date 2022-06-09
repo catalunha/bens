@@ -42,7 +42,7 @@ class UserProfileController extends GetxController
     String? phone,
     String? sector,
     String? position,
-    String? activity,
+    String? location,
   }) async {
     try {
       _loading(true);
@@ -76,7 +76,7 @@ class UserProfileController extends GetxController
         phone: phone,
         sector: sector,
         position: position,
-        activity: activity,
+        location: location,
       );
       String userProfileId = await _userProfileUseCase.update(userProfile);
       if (_xfile != null) {

@@ -19,7 +19,7 @@ class UserProfileEntity {
       email: parseObject.get('email'),
       sector: parseObject.get('sector'),
       position: parseObject.get('position'),
-      activity: parseObject.get('activity'),
+      location: parseObject.get('location'),
     );
     // userProfileEntity.photoParseFileBase = kIsWeb
     //     ? parseObject.get('photo') as ParseWebFile
@@ -62,8 +62,8 @@ class UserProfileEntity {
     if (userProfileModel.position != null) {
       profileParse.set('position', userProfileModel.position);
     }
-    if (userProfileModel.activity != null) {
-      profileParse.set('activity', userProfileModel.activity);
+    if (userProfileModel.location != null) {
+      profileParse.set('location', userProfileModel.location);
     }
     return profileParse;
   }

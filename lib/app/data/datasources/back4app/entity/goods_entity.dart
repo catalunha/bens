@@ -12,7 +12,7 @@ class GoodsEntity {
       name: parseObject.get('name'),
       description: parseObject.get('description'),
       image: parseObject.get('image')?.get('url'),
-      barcode: parseObject.get('barcode')?.get('url'),
+      qrcode: parseObject.get('barcode')?.get('url'),
       ownership: parseObject.get('ownership'),
       room: parseObject.get('room'),
       volumeX: parseObject.get('volumeX'),

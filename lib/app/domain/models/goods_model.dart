@@ -8,7 +8,7 @@ class GoodsModel {
   final String name;
   final String description;
   final String? image;
-  final String? barcode;
+  final String? qrcode;
   final String ownership;
   final String room;
   final num? volumeX;
@@ -23,7 +23,7 @@ class GoodsModel {
     required this.name,
     required this.description,
     this.image,
-    this.barcode,
+    this.qrcode,
     required this.ownership,
     required this.room,
     this.volumeX,
@@ -56,7 +56,7 @@ class GoodsModel {
       name: name ?? this.name,
       description: description ?? this.description,
       image: image ?? this.image,
-      barcode: barcode ?? this.barcode,
+      qrcode: barcode ?? qrcode,
       ownership: ownership ?? this.ownership,
       room: room ?? this.room,
       volumeX: volumeX ?? this.volumeX,
@@ -75,7 +75,7 @@ class GoodsModel {
       'name': name,
       'description': description,
       'image': image,
-      'barcode': barcode,
+      'barcode': qrcode,
       'ownership': ownership,
       'room': room,
       'volumeX': volumeX,
@@ -94,7 +94,7 @@ class GoodsModel {
       name: map['name'] ?? '',
       description: map['description'] ?? '',
       image: map['image'],
-      barcode: map['barcode'],
+      qrcode: map['barcode'],
       ownership: map['ownership'] ?? '',
       room: map['room'] ?? '',
       volumeX: map['volumeX'],
@@ -113,7 +113,7 @@ class GoodsModel {
 
   @override
   String toString() {
-    return 'GoodsModel(id: $id, user: $user, name: $name, description: $description, image: $image, barcode: $barcode, ownership: $ownership, room: $room, volumeX: $volumeX, volumeY: $volumeY, volumeZ: $volumeZ, weight: $weight, latitude: $latitude, longitude: $longitude)';
+    return 'GoodsModel(id: $id, user: $user, name: $name, description: $description, image: $image, barcode: $qrcode, ownership: $ownership, room: $room, volumeX: $volumeX, volumeY: $volumeY, volumeZ: $volumeZ, weight: $weight, latitude: $latitude, longitude: $longitude)';
   }
 
   @override
@@ -126,7 +126,7 @@ class GoodsModel {
         other.name == name &&
         other.description == description &&
         other.image == image &&
-        other.barcode == barcode &&
+        other.qrcode == qrcode &&
         other.ownership == ownership &&
         other.room == room &&
         other.volumeX == volumeX &&
@@ -144,7 +144,7 @@ class GoodsModel {
         name.hashCode ^
         description.hashCode ^
         image.hashCode ^
-        barcode.hashCode ^
+        qrcode.hashCode ^
         ownership.hashCode ^
         room.hashCode ^
         volumeX.hashCode ^

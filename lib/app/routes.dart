@@ -1,4 +1,5 @@
 import 'package:bens/app/presentation/controllers/goods/goods_dependencies.dart';
+import 'package:bens/app/presentation/views/goods/append/goods_append_page.dart';
 import 'package:bens/app/presentation/views/goods/list/goods_list_page.dart';
 import 'package:get/get.dart';
 import 'package:bens/app/presentation/controllers/auth/email/auth_register_email_dependencies.dart';
@@ -54,6 +55,11 @@ class Routes {
       name: Routes.goodsList,
       binding: GoodsDependencies(),
       page: () => GoodsListPage(),
+    ),
+    GetPage(
+      name: Routes.goodsAppend,
+      binding: GoodsDependencies(),
+      page: () => GoodsAppendPage(),
     ),
   ];
 }
