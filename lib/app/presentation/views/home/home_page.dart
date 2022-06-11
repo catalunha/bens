@@ -36,12 +36,21 @@ class _HomePageState extends State<HomePage> {
             runAlignment: WrapAlignment.center,
             children: [
               itemGrid(
-                  image: AppAssets.logo,
-                  text: 'Bens',
-                  onTap: () {
-                    print('click');
-                    Get.toNamed(Routes.goodsList);
-                  }),
+                image: AppAssets.logo,
+                text: 'Bens',
+                onTap: () {
+                  print('click');
+                  Get.toNamed(Routes.goodsList);
+                },
+              ),
+              itemGrid(
+                image: AppAssets.logo,
+                text: 'ScanCode',
+                onTap: () {
+                  print('click');
+                  Get.toNamed(Routes.goodsList);
+                },
+              ),
             ],
           ),
         )

@@ -16,3 +16,5 @@ cd ~/myapp/cemec.net.br/bens/b4a/cemec-bens && b4a deploy
 https://pub.dev/packages/qr_flutter
 https://medium.com/flutter-community/building-flutter-qr-code-generator-scanner-and-sharing-app-703e73b228d3
 https://www.qrcode.com/en/about/version.html
+
+https://qr.io/?gclid=Cj0KCQjw-pCVBhCFARIsAGMxhAd6YMnCz0cckN0sTSUhBbx1kCWxGKhDjU2enf1uQH_qSOIpPMLC91IaAnxKEALw_wcB
