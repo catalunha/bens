@@ -1,6 +1,8 @@
 import 'package:bens/app/presentation/controllers/goods/goods_dependencies.dart';
 import 'package:bens/app/presentation/views/goods/append/goods_append_page.dart';
 import 'package:bens/app/presentation/views/goods/list/goods_list_page.dart';
+import 'package:bens/app/presentation/views/goods/scanned/goods_scanned_page.dart';
+import 'package:bens/app/presentation/views/scan/scan_page.dart';
 import 'package:get/get.dart';
 import 'package:bens/app/presentation/controllers/auth/email/auth_register_email_dependencies.dart';
 import 'package:bens/app/presentation/controllers/auth/login/login_dependencies.dart';
@@ -24,6 +26,8 @@ class Routes {
 
   static const goodsList = '/goods/list';
   static const goodsAppend = '/goods/append';
+  static const goodsScan = '/goods/scan';
+  static const goodsScanned = '/goods/scanned';
 
   static final pageList = [
     GetPage(
@@ -58,8 +62,16 @@ class Routes {
     ),
     GetPage(
       name: Routes.goodsAppend,
-      binding: GoodsDependencies(),
       page: () => GoodsAppendPage(),
+    ),
+    GetPage(
+      name: Routes.goodsScan,
+      binding: GoodsDependencies(),
+      page: () => ScanPage(),
+    ),
+    GetPage(
+      name: Routes.goodsScanned,
+      page: () => GoodsScannedPage(),
     ),
   ];
 }

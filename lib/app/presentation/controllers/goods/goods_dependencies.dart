@@ -8,14 +8,15 @@ import 'package:bens/app/data/datasources/repositories/goods_repository.dart';
 class GoodsDependencies implements Bindings {
   @override
   void dependencies() {
-    Get.put<GoodsRepository>(
-      GoodsRepositoryB4a(),
+    Get.lazyPut<GoodsRepository>(
+      () => GoodsRepositoryB4a(),
     );
-    Get.put<GoodsUseCase>(
-      GoodsUseCaseImpl(
+    Get.lazyPut<GoodsUseCase>(
+      () => GoodsUseCaseImpl(
         repository: Get.find(),
       ),
     );
-    Get.put<GoodsController>(GoodsController(goodsUseCase: Get.find()));
+    Get.lazyPut<GoodsController>(
+        () => GoodsController(goodsUseCase: Get.find()));
   }
 }

@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:bens/app/presentation/controllers/auth/splash/splash_controller.dart';
 import 'package:bens/app/presentation/controllers/home/home_controller.dart';
@@ -6,6 +8,7 @@ import 'package:bens/app/presentation/views/home/parts/popmenu_user.dart';
 import 'package:bens/app/presentation/views/utils/app_appbar.dart';
 import 'package:bens/app/presentation/views/utils/app_assets.dart';
 import 'package:bens/app/routes.dart';
+import 'package:scan/scan.dart';
 
 class HomePage extends StatefulWidget {
   final SplashController _splashController = Get.find();
@@ -18,6 +21,29 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String _platformVersion = 'Unknown';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initPlatformState();
+  }
+
+  Future<void> initPlatformState() async {
+    String platformVersion;
+    try {
+      platformVersion = await Scan.platformVersion;
+    } on PlatformException {
+      platformVersion = 'Failed to get platform version.';
+    }
+    if (!mounted) return;
+
+    setState(() {
+      _platformVersion = platformVersion;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,14 +69,23 @@ class _HomePageState extends State<HomePage> {
                   Get.toNamed(Routes.goodsList);
                 },
               ),
-              itemGrid(
-                image: AppAssets.logo,
-                text: 'ScanCode',
-                onTap: () {
-                  print('click');
-                  Get.toNamed(Routes.goodsList);
-                },
-              ),
+              kIsWeb
+                  ? itemGrid(
+                      image: AppAssets.qrcode,
+                      text: 'Scanner desabilitado.',
+                      onTap: () {
+                        print('click');
+                        Get.toNamed(Routes.goodsScan);
+                      },
+                    )
+                  : itemGrid(
+                      image: AppAssets.qrcode,
+                      text: 'ScanCode',
+                      onTap: () {
+                        print('click');
+                        Get.toNamed(Routes.goodsScan);
+                      },
+                    ),
             ],
           ),
         )

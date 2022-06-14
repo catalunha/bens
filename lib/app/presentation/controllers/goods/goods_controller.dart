@@ -21,7 +21,7 @@ class GoodsController extends GetxController with LoaderMixin, MessageMixin {
   final _message = Rxn<MessageModel>();
 
   final _goodsList = <GoodsModel>[].obs;
-  List<GoodsModel> get goodss => _goodsList.toList();
+  List<GoodsModel> get goodsList => _goodsList.toList();
 
   final _goods = Rxn<GoodsModel>();
   GoodsModel? get goods => _goods.value;
@@ -110,9 +110,18 @@ class GoodsController extends GetxController with LoaderMixin, MessageMixin {
 
   void edit(String id) {
     print('goodsCurrent: $id');
-    var goodsTemp = goodss.firstWhere((element) => element.id == id);
+    var goodsTemp = goodsList.firstWhere((element) => element.id == id);
     _goods(goodsTemp);
     Get.toNamed(Routes.goodsAppend);
+  }
+
+  void scanned(String id) {
+    print('goodsCurrent: $id');
+    GoodsModel? goodsTemp = goodsList.firstWhereOrNull(
+      (element) => element.id == id,
+    );
+    _goods(goodsTemp);
+    Get.toNamed(Routes.goodsScanned);
   }
 
   Future<void> delete(String id) async {

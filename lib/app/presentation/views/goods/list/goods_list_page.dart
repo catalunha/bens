@@ -50,7 +50,7 @@ class GoodsListPage extends StatelessWidget {
                       ),
                     )
                   : GoodsList(
-                      goodsList: _goodsController.goodss,
+                      goodsList: _goodsController.goodsList,
                     ),
             ),
           ),
