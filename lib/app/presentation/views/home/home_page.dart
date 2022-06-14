@@ -69,6 +69,14 @@ class _HomePageState extends State<HomePage> {
                   Get.toNamed(Routes.goodsList);
                 },
               ),
+              itemGrid(
+                image: AppAssets.logo,
+                text: 'PDF List',
+                onTap: () {
+                  print('click');
+                  Get.toNamed(Routes.goodsPdfList);
+                },
+              ),
               kIsWeb
                   ? itemGrid(
                       image: AppAssets.qrcode,

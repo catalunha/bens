@@ -1,6 +1,7 @@
 import 'package:bens/app/presentation/controllers/goods/goods_dependencies.dart';
 import 'package:bens/app/presentation/views/goods/append/goods_append_page.dart';
 import 'package:bens/app/presentation/views/goods/list/goods_list_page.dart';
+import 'package:bens/app/presentation/views/goods/pdf/list/parts/goods_pdf_list.dart';
 import 'package:bens/app/presentation/views/goods/scanned/goods_scanned_page.dart';
 import 'package:bens/app/presentation/views/scan/scan_page.dart';
 import 'package:get/get.dart';
@@ -28,6 +29,7 @@ class Routes {
   static const goodsAppend = '/goods/append';
   static const goodsScan = '/goods/scan';
   static const goodsScanned = '/goods/scanned';
+  static const goodsPdfList = '/goods/pdf/list';
 
   static final pageList = [
     GetPage(
@@ -72,6 +74,11 @@ class Routes {
     GetPage(
       name: Routes.goodsScanned,
       page: () => GoodsScannedPage(),
+    ),
+    GetPage(
+      name: Routes.goodsPdfList,
+      binding: GoodsDependencies(),
+      page: () => GoodsPdfList(),
     ),
   ];
 }

@@ -13,6 +13,7 @@ dependencies:
   # Localizations
   flutter_localizations:
     sdk: flutter    
+  intl: ^0.17.0
   # Gerenciador de estados
   get: ^4.6.5
   # Google
@@ -35,6 +36,7 @@ dependencies:
   validatorless: ^1.2.1
   # pdf
   pdf: ^3.8.1
+  printing: ^5.6.0
 
 dev_dependencies:
   flutter_test:
