@@ -20,3 +20,6 @@ https://www.qrcode.com/en/about/version.html
 https://qr.io/?gclid=Cj0KCQjw-pCVBhCFARIsAGMxhAd6YMnCz0cckN0sTSUhBbx1kCWxGKhDjU2enf1uQH_qSOIpPMLC91IaAnxKEALw_wcB
 
 d4TQERAzDt
+
+# icon
+https://appicon.co/

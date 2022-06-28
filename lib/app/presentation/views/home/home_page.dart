@@ -71,10 +71,18 @@ class _HomePageState extends State<HomePage> {
               ),
               itemGrid(
                 image: AppAssets.logo,
-                text: 'PDF List',
+                text: 'Itens List',
                 onTap: () {
                   print('click');
                   Get.toNamed(Routes.goodsPdfList);
+                },
+              ),
+              itemGrid(
+                image: AppAssets.logo,
+                text: 'QrCode List',
+                onTap: () {
+                  print('click');
+                  Get.toNamed(Routes.goodsQRCodeList);
                 },
               ),
               kIsWeb
@@ -83,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                       text: 'Scanner desabilitado.',
                       onTap: () {
                         print('click');
-                        Get.toNamed(Routes.goodsScan);
+                        // Get.toNamed(Routes.goodsScan);
                       },
                     )
                   : itemGrid(

@@ -158,37 +158,39 @@ class GoodsPdfList extends StatelessWidget {
                   drawText: false,
                 ),
                 pw.SizedBox(width: 10),
-                pw.Column(
-                  crossAxisAlignment: pw.CrossAxisAlignment.start,
-                  children: <pw.Widget>[
-                    pw.Text(good.name),
-                    // pw.Paragraph(text: good.name),
-                    pw.SizedBox(
-                      width: 450,
-                      child: pw.Text(good.description),
-                    ),
-                    // pw.Text(good.description),
-                    pw.Text(good.ownership),
-                    pw.Text(good.room),
-                  ],
+                pw.SizedBox(
+                  width: 300,
+                  child: pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.start,
+                    children: <pw.Widget>[
+                      pw.Text(good.name),
+                      // pw.Paragraph(text: good.name),
+                      pw.SizedBox(
+                        width: 450,
+                        child: pw.Text(good.description),
+                      ),
+                      // pw.Text(good.description),
+                      pw.Text(good.ownership),
+                      pw.Text(good.room),
+                    ],
+                  ),
                 ),
-              ],
-            ),
-            pw.Row(
-              children: [
+                pw.SizedBox(width: 10),
                 pw.Image(
                   image,
                   width: 50,
                   height: 100,
                 ),
                 pw.SizedBox(width: 10),
-                pw.Column(children: [
-                  // pw.Paragraph(text: good.description),
-                  pw.Text('VolX: ${good.volumeX}'),
-                  pw.Text('VolY: ${good.volumeY}'),
-                  pw.Text('VolZ: ${good.volumeZ}'),
-                  pw.Text('Peso: ${good.weight}'),
-                ])
+                pw.Column(
+                  children: [
+                    // pw.Paragraph(text: good.description),
+                    pw.Text('VolX: ${good.volumeX}'),
+                    pw.Text('VolY: ${good.volumeY}'),
+                    pw.Text('VolZ: ${good.volumeZ}'),
+                    pw.Text('Peso: ${good.weight}'),
+                  ],
+                ),
               ],
             ),
             pw.Divider(height: 2),
