@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bens/app/presentation/views/utils/app_launch.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:bens/app/presentation/controllers/auth/login/login_controller.dart';
@@ -8,6 +9,7 @@ import 'package:bens/app/presentation/views/utils/app_button.dart';
 import 'package:bens/app/presentation/views/utils/app_textformfield.dart';
 import 'package:bens/app/presentation/views/utils/app_theme.dart';
 import 'package:bens/app/routes.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:validatorless/validatorless.dart';
 
 class AuthLoginPage extends StatefulWidget {
@@ -144,6 +146,27 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
                                 style: AppTheme.textBold,
                               ),
                             )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TextButton(
+                              onPressed: () => AppLaunch.launchLink(
+                                  'https://numbersandcalcs.brintec.org/terms-of-use/'),
+                              child: Text(
+                                'Terms of use',
+                                style: GoogleFonts.pacifico(fontSize: 10.0),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () => AppLaunch.launchLink(
+                                  'https://numbersandcalcs.brintec.org/privacy-policy/'),
+                              child: Text(
+                                'Privacy police',
+                                style: GoogleFonts.pacifico(fontSize: 10.0),
+                              ),
+                            ),
                           ],
                         )
                       ],

@@ -1,7 +1,7 @@
 import 'package:url_launcher/url_launcher.dart';
 
 class AppLaunch {
-  static void launch(String url) async {
+  static void launchLink(String url) async {
     final Uri uri = Uri.parse(url);
     _launchUri(uri);
   }
