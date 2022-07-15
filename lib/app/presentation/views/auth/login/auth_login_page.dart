@@ -153,18 +153,18 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
                           children: [
                             TextButton(
                               onPressed: () => AppLaunch.launchLink(
-                                  'https://numbersandcalcs.brintec.org/terms-of-use/'),
+                                  'https://bens.cemec.net.br/terms-of-use/'),
                               child: Text(
                                 'Terms of use',
-                                style: GoogleFonts.pacifico(fontSize: 10.0),
+                                style: GoogleFonts.pacifico(fontSize: 14.0),
                               ),
                             ),
                             TextButton(
                               onPressed: () => AppLaunch.launchLink(
-                                  'https://numbersandcalcs.brintec.org/privacy-policy/'),
+                                  'https://bens.cemec.net.br/privacy-policy/'),
                               child: Text(
-                                'Privacy police',
-                                style: GoogleFonts.pacifico(fontSize: 10.0),
+                                'Privacy policy',
+                                style: GoogleFonts.pacifico(fontSize: 14.0),
                               ),
                             ),
                           ],

@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  webserver:
+    image: nginx:1.14.2-alpine
+    restart: always
+    volumes:
+      # uris
+      - ./webserver/conf.d:/etc/nginx/conf.d
+      # htmls
+      - ./webserver/public_html:/public_html
+      # apis
+      # - ./webserver/api:/api
+      # certbot
+      - ./dhparam:/etc/nginx/dhparam
+      - ./certbot/conf:/etc/nginx/ssl
+      - ./certbot/data:/usr/share/nginx/html/letsencrypt
+    ports:
+      - 80:80
+      - 443:443
+
+  certbot:
+    image: certbot/certbot:latest
+    command: certonly --webroot --webroot-path=/usr/share/nginx/html/letsencrypt --email contato@migm.org --force-renew  --agree-tos --no-eff-email --cert-name cemec.net.br -d bens.cemec.net.br
+    volumes:
+      - ./certbot/conf/:/etc/letsencrypt
+      - ./certbot/logs/:/var/log/letsencrypt
+      - ./certbot/data:/usr/share/nginx/html/letsencrypt
