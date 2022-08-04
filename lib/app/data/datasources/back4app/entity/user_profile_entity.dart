@@ -20,6 +20,7 @@ class UserProfileEntity {
       sector: parseObject.get('sector'),
       position: parseObject.get('position'),
       location: parseObject.get('location'),
+      isActive: parseObject.get('isActive'),
     );
     // userProfileEntity.photoParseFileBase = kIsWeb
     //     ? parseObject.get('photo') as ParseWebFile
@@ -64,6 +65,9 @@ class UserProfileEntity {
     }
     if (userProfileModel.location != null) {
       profileParse.set('location', userProfileModel.location);
+    }
+    if (userProfileModel.isActive != null) {
+      profileParse.set('isActive', userProfileModel.isActive);
     }
     return profileParse;
   }

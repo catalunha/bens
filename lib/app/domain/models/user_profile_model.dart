@@ -11,6 +11,7 @@ class UserProfileModel {
   final String? sector;
   final String? position;
   final String? location;
+  final bool? isActive;
   UserProfileModel({
     this.id,
     this.photo,
@@ -22,6 +23,7 @@ class UserProfileModel {
     this.sector,
     this.position,
     this.location,
+    this.isActive,
   });
 
   UserProfileModel copyWith({
@@ -35,6 +37,7 @@ class UserProfileModel {
     String? sector,
     String? position,
     String? location,
+    bool? isActive,
   }) {
     return UserProfileModel(
       id: id ?? this.id,
@@ -47,6 +50,7 @@ class UserProfileModel {
       sector: sector ?? this.sector,
       position: position ?? this.position,
       location: location ?? this.location,
+      isActive: isActive ?? this.isActive,
     );
   }
 
@@ -62,6 +66,7 @@ class UserProfileModel {
       'sector': sector,
       'position': position,
       'location': location,
+      'isActive': isActive,
     };
   }
 
@@ -77,6 +82,7 @@ class UserProfileModel {
       sector: map['sector'],
       position: map['position'],
       location: map['location'],
+      isActive: map['isActive'],
     );
   }
 
@@ -87,7 +93,7 @@ class UserProfileModel {
 
   @override
   String toString() {
-    return 'UserProfileModel(id: $id, photo: $photo, nickname: $nickname, fullName: $fullName, description: $description, phone: $phone, email: $email, sector: $sector, position: $position, location: $location)';
+    return 'UserProfileModel(id: $id, photo: $photo, nickname: $nickname, fullName: $fullName, description: $description, phone: $phone, email: $email, sector: $sector, position: $position, location: $location, isActive: $isActive)';
   }
 
   @override
@@ -95,6 +101,7 @@ class UserProfileModel {
     if (identical(this, other)) return true;
 
     return other is UserProfileModel &&
+        other.isActive == isActive &&
         other.id == id &&
         other.photo == photo &&
         other.nickname == nickname &&
@@ -110,6 +117,7 @@ class UserProfileModel {
   @override
   int get hashCode {
     return id.hashCode ^
+        isActive.hashCode ^
         photo.hashCode ^
         nickname.hashCode ^
         fullName.hashCode ^

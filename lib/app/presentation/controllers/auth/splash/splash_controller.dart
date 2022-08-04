@@ -47,7 +47,11 @@ class SplashController extends GetxController {
     if (isLogged) {
       print('tem user indo para home');
       print(userModel);
-      Get.offAllNamed(Routes.home);
+      if (userModel!.profile!.isActive == true) {
+        Get.offAllNamed(Routes.home);
+      } else {
+        Get.offAllNamed(Routes.authLogin);
+      }
     } else {
       print('NAO tem user indo para LOGIN');
       print(userModel);
@@ -113,6 +117,8 @@ class SplashController extends GetxController {
       // ));
       print('===> _hasUserLogged. userModel');
       print(userModel);
+      print('===> isActive');
+      print(userModel!.profile!.isActive);
       return true;
     }
   }
