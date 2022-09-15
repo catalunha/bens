@@ -56,11 +56,13 @@ class LoginController extends GetxController with LoaderMixin, MessageMixin {
           isError: true,
         );
       }
-    } on AuthRepositoryException catch (e) {
+    } on AuthRepositoryException {
       _loading(false);
       _message.value = MessageModel(
         title: 'Oops',
-        message: '${e.code} ${e.message}',
+        message:
+            'Conecte-se a internet para solicitar login.\n...\nConnect to the internet to request login.',
+        // message: '${e.code} ${e.message}',
         isError: true,
       );
     } finally {

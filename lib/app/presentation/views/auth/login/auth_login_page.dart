@@ -83,6 +83,7 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
                         AppTextFormField(
                           label: 'Senha',
                           controller: _passwordTec,
+                          obscureText: true,
                           validator: Validatorless.multiple([
                             Validatorless.required('Senha obrigatória.'),
                             Validatorless.min(6, 'Minimo de 6 caracteres.'),

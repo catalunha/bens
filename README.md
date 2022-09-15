@@ -221,3 +221,12 @@ catalunha@pop-os:~/myapp/cemec.net.br/bens$ flutter clean
 catalunha@pop-os:~/myapp/cemec.net.br/bens$ flutter build web
 
 catalunha@pop-os:~/myapp/cemec.net.br/bens$ flutter build appbundle
+
+
+A cada nova versão mudar em:
+android/local.properties
+flutter.versionName=1.0.2
+flutter.versionCode=2
+e em
+pubspec.yaml
+version: 1.0.2+2
