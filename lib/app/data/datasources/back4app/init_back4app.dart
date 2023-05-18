@@ -6,8 +6,8 @@ class InitBack4app {
   }
 
   Future<bool> init() async {
-    const keyApplicationId = 'rJ1ofbKkVNOgxs8hwLdX16hmSEXRz2VYCWcPEUfN';
-    const keyClientKey = 'n3Bpuz2ODdECqWPIwyqr5PL6hpXUCObFTKVdQOjQ';
+    const keyApplicationId = '';
+    const keyClientKey = '';
     const keyParseServerUrl = 'https://parseapi.back4app.com';
     const keyLiveQueryUrl = 'https://cemecbens.b4a.io';
     await Parse().initialize(
